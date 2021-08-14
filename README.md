@@ -1,5 +1,15 @@
 # ERROR-Spam-Bot
-<a href="https://github.com/itz-error/ERROR-Spam-Bot"><img src="https://telegra.ph/file/c5a659d1d185478523fc6.jpg"alt="ERROR SPAM BOT" width=400px></a>
+<h2 align="center"><b>OWNER <a href="https://telegram.dog/itz_error">『 ツᴅɪᴄͥᴛᴀᴛᴏͣʀͫ乛ᴀᴍᴀᴀɴ々』</a></b></h2>
+<br>
+<p align="center">
+   <a href="https://github.com/itz-error/ERROR-SPAM-BOT"><img src="https://telegra.ph/file/c5a659d1d185478523fc6.jpg" alt="ERROR SPAM BOT" width=400px></a>
+   <br>
+   <br>
+</p>
+<h1>ERROR SPAM BOT</h1>
+<b>ERROR SPAM BOT is a telgram Spam Bot that can do unlimited spam.</b>
+<br>
+<br>
    
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/itz-error/ERROR-Spam-Bot)
 
