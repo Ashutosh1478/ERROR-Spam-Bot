@@ -1,4 +1,4 @@
-# ERROR SPAM BOT 
+# E̳R̳R̳O̳R̳-S̳P̳A̳M̳M̳E̳R̳
 
 [![Stars](https://img.shields.io/github/stars/itz-error/ERROR-Spam-Bot?&style=flat-square)]( https://github.com/itz-error/ERROR-Spam-Bot/stargazers)
 [![Forks](https://img.shields.io/github/forks/itz-error/ERROR-Spam-Bot?&style=flat-square)]( https://github.com/itz-error/ERROR-Spam-Bot/network/members)
