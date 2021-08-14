@@ -16,10 +16,10 @@
 <br>
    
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/itz-error/ERROR-Spam-Bot)
-## SUPPORT GROUP
-<a href="https://t.me/error_spammer_support"><img src="https://img.shields.io/badge/Join-Support%20Channel-red.svg?style=for-the-badge&logo=Telegram"></a>
 ## SUPPORT CHANNEL
-<a href="https://t.me/error_spammer"><img src="https://img.shields.io/badge/Join-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/error_spammer"><img src="https://img.shields.io/badge/Join-Support%20Channel-red.svg?style=for-the-badge&logo=Telegram"></a>
+## SUPPORT GROUP
+<a href="https://t.me/error_spammer_support"><img src="https://img.shields.io/badge/Join-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
 
 
 ## CREDITS
