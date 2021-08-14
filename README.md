@@ -11,7 +11,7 @@
    <br>
    <br>
 </p>
-<b>ERROR SPAM BOT is a telgram Spam Bot that can do unlimited spam.</b>
+<b>ERROR SPAMMER is a telgram Spam Bot that can do unlimited spam.</b>
 <br>
 <br>
    
