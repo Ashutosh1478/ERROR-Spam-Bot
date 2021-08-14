@@ -25,7 +25,7 @@
 ## Requirements 
 * Python 3.8 or Higher
 * Telegram [API Keys](https://my.telegram.org/apps)
-* [STRING](t.me@SessionGeneratorBot)
+* [STRING](https://t.me@SessionGeneratorBot)
 
 ## CREDITS
 [🆈🆄🅺🅺🅸](https://github.com/YukkiBot/YukkiMultiSpamBot)
