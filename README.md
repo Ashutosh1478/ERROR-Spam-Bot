@@ -22,6 +22,11 @@
 <a href="https://t.me/error_spammer_support"><img src="https://img.shields.io/badge/Join-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
 
 
+# Requirements 
+* Python 3.8 or Higher
+* Telegram [API Keys](https://my.telegram.org/apps)
+* String [Generate from here](t.me@SessionGeneratorBot)
+
 ## CREDITS
 [YUKKI](https://github.com/YukkiBot/YukkiMultiSpamBot)
 
