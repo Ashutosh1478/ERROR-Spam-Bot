@@ -1,5 +1,5 @@
 # ERROR-Spam-Bot
-<h2 align="center"><b>OWNER <a href="https://telegram.dog/itz_error">『 ツᴅɪᴄͥᴛᴀᴛᴏͣʀͫ乛ᴀᴍᴀᴀɴ々』</a></b></h2>
+<h2 align="center"><b>OWNER <a href="https://telegram.dog/itz_error">ERROR</a></b></h2>
 <br>
 <p align="center">
    <a href="https://github.com/itz-error/ERROR-SPAM-BOT"><img src="https://telegra.ph/file/c5a659d1d185478523fc6.jpg" alt="ERROR SPAM BOT" width=400px></a>
