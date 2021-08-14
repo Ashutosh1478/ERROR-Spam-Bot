@@ -1,7 +1,7 @@
 {
-  "name": "YUKKI SPAM USERBOT",
+  "name": "ERROR SPAM BOT",
   "description": "A Powerful Telegram Spam Userbot.",
-  "logo": "https://telegra.ph/file/bf6f67d9f1f1106ca4dce.jpg",
+  "logo": "https://telegra.ph/file/c5a659d1d185478523fc6.jpg",
   "keywords": [
     "spambot",
     "telegram",
@@ -14,7 +14,7 @@
         "required": false
       },
       "API_ID": {
-        "description": "Telethon String Session",
+        "description": "API ID",
         "value": "",
         "required": true
       },
