@@ -28,7 +28,7 @@
 * [STRING](t.me@SessionGeneratorBot)
 
 ## CREDITS
-[YUKKI](https://github.com/YukkiBot/YukkiMultiSpamBot)
+[🆈🆄🅺🅺🅸](https://github.com/YukkiBot/YukkiMultiSpamBot)
 
 # Mandatory Vars
 ```
