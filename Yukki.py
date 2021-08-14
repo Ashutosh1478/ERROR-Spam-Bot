@@ -841,17 +841,11 @@ async def help(e):
 
     
         
-text = """
-██╗░░░██╗██╗░░░██╗██╗░░██╗██╗░░██╗██╗
-╚██╗░██╔╝██║░░░██║██║░██╔╝██║░██╔╝██║
-░╚████╔╝░██║░░░██║█████═╝░█████═╝░██║
-░░╚██╔╝░░██║░░░██║██╔═██╗░██╔═██╗░██║
-░░░██║░░░╚██████╔╝██║░╚██╗██║░╚██╗██║
-░░░╚═╝░░░░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝"""
+text = """ERROR SPAM BOT IS ON FIRE"""
 
 print(text)
 print("")
-print("SMEX! Yukki Multi Spam Bot Started Sucessfully.")
+print("SMEX! ERROR Spam Bot Started Sucessfully.")
 if len(sys.argv) not in (1, 3, 4):
     try:
         idk.disconnect()
