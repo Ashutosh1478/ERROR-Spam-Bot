@@ -4,7 +4,7 @@
 [![Forks](https://img.shields.io/github/forks/itz-error/ERROR-Spam-Bot?&style=flat-square)]( https://github.com/itz-error/ERROR-Spam-Bot/network/members)
 ![Repo Size](https://img.shields.io/github/repo-size/itz-error/ERROR-Spam-Bot?style=flat-square)
 
-<h2 align="center"><b>OWNER <a href="https://telegram.dog/itz_error">🅴🆁🆁🅾🆁</a></b></h4>
+<h2 align="center"><b>OWNER <a href="https://telegram.dog/itz_error">🅴🆁🆁🅾🆁</a></b></h2>
 <br>
 <p align="center">
    <a href="https://github.com/itz-error/ERROR-SPAM-BOT"><img src="https://telegra.ph/file/c5a659d1d185478523fc6.jpg" alt="ERROR SPAM BOT" width=400px></a>
