@@ -1,4 +1,8 @@
 # ERROR SPAM BOT 
+[![Stars](https://img.shields.io/github/stars/itz-error/ERROR-Spam-Bot?&style=flat-square)]( https://github.com/itz-error/ERROR-Spam-Bot/stargazers)
+[![Forks](https://img.shields.io/github/forks/itz-error/ERROR-Spam-Bot?&style=flat-square)]( https://github.com/itz-error/ERROR-Spam-Bot/network/members)
+![Repo Size](https://img.shields.io/github/repo-size/itz-error/ERROR-Spam-Bot?style=flat-square)
+
 <h2 align="center"><b>OWNER <a href="https://telegram.dog/itz_error">🅴🆁🆁🅾🆁</a></b></h4>
 <br>
 <p align="center">
