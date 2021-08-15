@@ -20,7 +20,8 @@
 <a href="https://t.me/error_spammer"><img src="https://img.shields.io/badge/Join-Support%20Channel-red.svg?style=for-the-badge&logo=Telegram"></a>
 ## SUPPORT GROUP
 <a href="https://t.me/error_spammer_support"><img src="https://img.shields.io/badge/Join-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
-
+## TUTORIAL
+https://telegra.ph/file/49936d98daf1b27e15a05.jpg
 
 ## Requirements 
 * Python 3.8 or Higher
