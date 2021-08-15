@@ -749,7 +749,13 @@ async def _(e):
 async def ping(e):
     if e.sender_id in SMEX_USERS:
         start = datetime.now()
-        text = "Pong!"
+        text = "
+██████╗░░█████╗░███╗░░██╗░██████╗░
+██╔══██╗██╔══██╗████╗░██║██╔════╝░
+██████╔╝██║░░██║██╔██╗██║██║░░██╗░
+██╔═══╝░██║░░██║██║╚████║██║░░╚██╗
+██║░░░░░╚█████╔╝██║░╚███║╚██████╔╝
+╚═╝░░░░░░╚════╝░╚═╝░░╚══╝░╚═════╝░"
         event = await e.reply(text, parse_mode=None, link_preview=None )
         end = datetime.now()
         ms = (end-start).microseconds / 1000
@@ -841,8 +847,10 @@ async def help(e):
 
     
         
-text = """ERROR SPAM BOT IS ON FIRE"""
-
+text = "
+░█▀▀▀█ ░█▀▀█ ─█▀▀█ ░█▀▄▀█ ░█▀▄▀█ ░█▀▀▀ ░█▀▀█ 
+─▀▀▀▄▄ ░█▄▄█ ░█▄▄█ ░█░█░█ ░█░█░█ ░█▀▀▀ ░█▄▄▀ 
+░█▄▄▄█ ░█─── ░█─░█ ░█──░█ ░█──░█ ░█▄▄▄ ░█─░█"
 print(text)
 print("")
 print("SMEX! ERROR Spam Bot Started Sucessfully.")
