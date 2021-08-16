@@ -840,7 +840,10 @@ async def help(e):
 
     
         
-text = """ERROR SPAMMER"""
+text = """╔══╗╔═╗╔═╗╔══╗
+║╔═╣║║║║║║╚╗╗║
+║╚╗║║║║║║║╔╩╝║
+╚══╝╚═╝╚═╝╚══╝"""
 print(text)
 print("")
 print("SMEX! ERROR Spam Bot Started Sucessfully.")
