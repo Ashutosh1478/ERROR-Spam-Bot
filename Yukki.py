@@ -837,7 +837,154 @@ async def help(e):
        text = "𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀\n\n𝙐𝙩𝙞𝙡𝙨 𝘾𝙤𝙢𝙢𝙖𝙣𝙙:\n.ping\n.restart\n\n𝙐𝙨𝙚𝙧𝙗𝙤𝙩 𝘾𝙤𝙢𝙢𝙖𝙣𝙙:\n.bio\n.join\n.pjoin\n.leave\n\n𝙎𝙥𝙖𝙢 𝘾𝙤𝙢𝙢𝙖𝙣𝙙:\n.spam\n.delayspam\n.bigspam\n.raid\n.replyraid\n.dreplyraid\n\n\nFor more help regarding usage of plugins type plugins name"
        await e.reply(text, parse_mode=None, link_preview=None )
 
-        
+@idk.on(events.NewMessage(incoming=True, pattern=r"\.update"))
+@ydk.on(events.NewMessage(incoming=True, pattern=r"\.update"))
+@wdk.on(events.NewMessage(incoming=True, pattern=r"\.update"))
+@hdk.on(events.NewMessage(incoming=True, pattern=r"\.update"))
+@sdk.on(events.NewMessage(incoming=True, pattern=r"\.update"))
+@adk.on(events.NewMessage(incoming=True, pattern=r"\.update"))
+@bdk.on(events.NewMessage(incoming=True, pattern=r"\.update"))
+@cdk.on(events.NewMessage(incoming=True, pattern=r"\.update"))
+@edk.on(events.NewMessage(incoming=True, pattern=r"\.update"))
+@ddk.on(events.NewMessage(incoming=True, pattern=r"\.update"))
+async def _(e):
+ if e.sender_id in SMEX_USERS:
+    "For .update command, check if the bot is up to date, update if specified"
+    await e.edit("** Checking for new updates 🧐🧐**")
+    conf = e.pattern_match.group(1)
+    off_repo = UPSTREAM_REPO_URL
+    force_updateme = False
+
+    try:
+        txt = "`Oops.. Updater cannot continue as "
+        txt += "some problems occured`\n\n**LOGTRACE:**\n"
+        repo = Repo()
+    except NoSuchPathError as error:
+        await e.edit(f'{txt}\n`directory {error} is not found`')
+        repo.__del__()
+        return
+    except GitCommandError as error:
+        await e.edit(f'{txt}\n`Early failure! {error}`')
+        repo.__del__()
+        return
+    except InvalidGitRepositoryError as error:
+        if conf != "now":
+            await e.edit(
+                f"**Sync-Verification required since the directory {error} does not seem to be a git repository.\
+                \nSync-Verify now with {GIT_REPO_NAME}\
+            \nTo do This type** `.update now`."
+            )
+            return
+        repo = Repo.init()
+        origin = repo.create_remote('upstream', off_repo)
+        origin.fetch()
+        force_updateme = True
+        repo.create_head('master', origin.refs.master)
+        repo.heads.master.set_tracking_branch(origin.refs.master)
+        repo.heads.master.checkout(True)
+
+    ac_br = repo.active_branch.name
+    if ac_br != 'master':
+        await e.edit(
+            f'**[UPDATER]:**` Looks like you are using your own custom branch ({ac_br}). '
+            'in that case, Updater is unable to identify '
+             'which branch is to be merged. '
+            'Please checkout the official branch`')
+        repo.__del__()
+        return
+
+    try:
+        repo.create_remote('upstream', off_repo)
+    except BaseException:
+        pass
+
+    e_rem = repo.remote('upstream')
+    e_rem.fetch(ac_br)
+
+    changelog = await gen_chlog(repo, f'HEAD..upstream/{ac_br}')
+
+    if not changelog and not force_updateme:
+        await e.edit(
+            f'\nBot is  **up-to-date**  `with`  **[[{ac_br}]]({UPSTREAM_REPO_URL}/tree/{ac_br})**\n')
+        repo.__del__()
+        return
+
+    if conf != "now" and not force_updateme:
+        changelog_str = f'**New UPDATE available for [[{ac_br}]]({UPSTREAM_REPO_URL}/tree/{ac_br}):**\n\n' + '**CHANGELOG**\n\n' + f'{changelog}'
+        if len(changelog_str) > 4096:
+            await e.edit("`Changelog is too big, view the file to see it.`")
+            file = open("output.txt", "w+")
+            file.write(changelog_str)
+            file.close()
+            await e.client.send_file(
+                e.chat_id,
+                "output.txt",
+                reply_to=e.id,
+            )
+            remove("output.txt")
+        else:
+            await e.edit(changelog_str)
+        await e.respond(f'Do `.update now` to update')
+        return
+
+    if force_updateme:
+        await e.edit(
+            '`Force-Updating, please wait...`')
+    else:
+        await e.edit('`Updating your` **ERROR SPAMMER** `please wait for 5 mins then type .ping ...`')
+    # We're in a Heroku Dyno, handle it's memez.
+    if config.HEROKU_API_KEY is not None:
+        import heroku3
+        heroku = heroku3.from_key(config.HEROKU_API_KEY)
+        heroku_app = None
+        heroku_applications = heroku.apps()
+        if not config.HEROKU_APP_NAME:
+            await e.edit('`Please set up the HEROKU_APP_NAME configiable to be able to update SPAMMER.`')
+            repo.__del__()
+            return
+        for app in heroku_applications:
+            if app.name == config.HEROKU_APP_NAME:
+                heroku_app = app
+                break
+        if heroku_app is None:
+            await e.edit(
+                f'{txt}\n`Invalid Heroku credentials for updating.`'
+            )
+            repo.__del__()
+            return
+        await e.edit('`Updating Started \nRestarting, please wait 5min then type .ping.`'
+                       )
+        e_rem.fetch(ac_br)
+        repo.git.reset("--hard", "FETCH_HEAD")
+        heroku_git_url = heroku_app.git_url.replace(
+            "https://", "https://api:" + config.HEROKU_API_KEY + "@")
+        if "heroku" in repo.remotes:
+            remote = repo.remote("heroku")
+            remote.set_url(heroku_git_url)
+        else:
+            remote = repo.create_remote("heroku", heroku_git_url)
+        try:
+            remote.push(refspec="HEAD:refs/heads/master", force=True)
+        except GitCommandError as error:
+            await e.edit(f'{txt}\n`Here is the error log:\n{error}`')
+            repo.__del__()
+            return
+        await e.edit('`Sync Verified Successfully 🙂🙂\n'
+                       'Restarting, please wait a min ,then type .alive to check if I alive 😂!!`')
+    else:
+        # Classic Updater, pretty straightforward.
+        try:
+            e_rem.pull(ac_br)
+        except GitCommandError:
+            repo.git.reset("--hard", "FETCH_HEAD")
+        await updateme_requirements()
+        await e.edit('`Successfully Updated!\n'
+                       'Bot is restarting... Wait for a minute`')
+        # Spin a new instance of bot
+        args = [sys.executable, "-m", "atgk"]
+        execle(sys.executable, *args, environ)
+        return
+    
 
     
         
