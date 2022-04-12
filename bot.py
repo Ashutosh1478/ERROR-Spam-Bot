@@ -8,7 +8,7 @@ import sys
 import io
 from datetime import datetime
 from os import execl
-from telethon import TelegramClient, events, errors, functions, types
+from telethon import *
 from telethon.sessions import StringSession
 from telethon.sync import TelegramClient
 from telethon import functions, types
