@@ -1,4 +1,6 @@
-Telethon
+#Telethon
+https://github.com/SpEcHiDe/Telethon/archive/6fdb5ab69e7c9277f18100f25b86c18ca01ee7ff.zip
+https://github.com/SpEcHiDe/telethon-session-sqlalchemy/archive/heroku-deps.zip
 python-dotenv
 asyncio
 TgCrypto
