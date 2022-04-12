@@ -441,7 +441,7 @@ async def restart(e):
 async def _(event):
     if event.fwd_from:
         return
-    await edit_or_reply(event, "Processing ...")
+    await client.edit_message(event, "Processing ...")
     cmd = event.text.split(" ", maxsplit=1)[1]
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
