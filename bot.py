@@ -488,8 +488,8 @@ async def _(event):
                 reply_to=reply_to_id,
             )
             await event.delete()
-    else:
-        await edit_or_reply(event, final_output)
+   else:
+        await event.reply(event, final_output)
 
 
 async def aexec(code, event):
