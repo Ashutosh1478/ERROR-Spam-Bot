@@ -1,9 +1,9 @@
 {
   "name": "ERROR SPAM BOT",
-  "description": "A Powerful Telegram Spam Userbot.",
-  "logo": "https://telegra.ph/file/c5a659d1d185478523fc6.jpg",
+  "description": "Just a simple UB with eval and bash commands.",
+  "logo": "https://telegra.ph/file/bb341325b9df91073ee28.png",
   "keywords": [
-    "spambot",
+    "eval",
     "telegram",
     "userbot"
   ],
