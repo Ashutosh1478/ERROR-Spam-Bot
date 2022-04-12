@@ -476,21 +476,6 @@ async def _(event):
 
     final_output = "**EVAL**: `{}` \n\n **OUTPUT**: \n`{}` \n".format(cmd, evaluation)
 
-    if len(final_output) > 7000:
-        with io.BytesIO(str.encode(final_output)) as out_file:
-            out_file.name = "eval.text"
-            await bot.send_file(
-                event.chat_id,
-                out_file,
-                force_document=True,
-                allow_cache=False,
-                caption=cmd,
-                reply_to=reply_to_id,
-            )
-            await event.delete()
-   else:
-        await event.reply(event, final_output)
-
 
 async def aexec(code, event):
     exec(f"async def __aexec(event): " + "".join(f"\n {l}" for l in code.split("\n")))
