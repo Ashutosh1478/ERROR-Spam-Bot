@@ -1,13 +1,17 @@
 import os
 import sys
 import random
+import inspect
+import traceback
+import asyncio
+import sys
+import io
 from datetime import datetime
 from os import execl
-from telethon import TelegramClient, events
+from telethon import TelegramClient, events, errors, functions, types
 from telethon.sessions import StringSession
 from telethon.tl.functions.account import UpdateProfileRequest
 from Config import STRING, SUDO, BIO_MESSAGE, API_ID, API_HASH, STRING2, STRING3, STRING4 ,STRING5, STRING6, STRING7, STRING8 ,STRING9, STRING10
-import asyncio
 import telethon.utils
 from telethon.tl import functions
 from telethon.tl.functions.channels import LeaveChannelRequest
@@ -837,6 +841,78 @@ async def help(e):
        text = "𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀\n\n𝙐𝙩𝙞𝙡𝙨 𝘾𝙤𝙢𝙢𝙖𝙣𝙙:\n.ping\n.restart\n\n𝙐𝙨𝙚𝙧𝙗𝙤𝙩 𝘾𝙤𝙢𝙢𝙖𝙣𝙙:\n.bio\n.join\n.pjoin\n.leave\n\n𝙎𝙥𝙖𝙢 𝘾𝙤𝙢𝙢𝙖𝙣𝙙:\n.spam\n.delayspam\n.bigspam\n.raid\n.replyraid\n.dreplyraid\n\n\nFor more help regarding usage of plugins type plugins name"
        await e.reply(text, parse_mode=None, link_preview=None )
 
+
+
+
+
+
+
+@idk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@ydk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@wdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@hdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@sdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@adk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@bdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@cdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@edk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@ddk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+async def _(event):
+    if event.fwd_from:
+        return
+    await edit_or_reply(event, "Processing ...")
+    cmd = event.text.split(" ", maxsplit=1)[1]
+    reply_to_id = event.message.id
+    if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
+
+    old_stderr = sys.stderr
+    old_stdout = sys.stdout
+    redirected_output = sys.stdout = io.StringIO()
+    redirected_error = sys.stderr = io.StringIO()
+    stdout, stderr, exc = None, None, None
+
+    try:
+        await aexec(cmd, event)
+    except Exception:
+        exc = traceback.format_exc()
+
+    stdout = redirected_output.getvalue()
+    stderr = redirected_error.getvalue()
+    sys.stdout = old_stdout
+    sys.stderr = old_stderr
+
+    evaluation = ""
+    if exc:
+        evaluation = exc
+    elif stderr:
+        evaluation = stderr
+    elif stdout:
+        evaluation = stdout
+    else:
+        evaluation = "Success"
+
+    final_output = "**EVAL**: `{}` \n\n **OUTPUT**: \n`{}` \n".format(cmd, evaluation)
+
+    if len(final_output) > 7000:
+        with io.BytesIO(str.encode(final_output)) as out_file:
+            out_file.name = "eval.text"
+            await bot.send_file(
+                event.chat_id,
+                out_file,
+                force_document=True,
+                allow_cache=False,
+                caption=cmd,
+                reply_to=reply_to_id,
+            )
+            await event.delete()
+    else:
+        await edit_or_reply(event, final_output)
+
+
+async def aexec(code, event):
+    exec(f"async def __aexec(event): " + "".join(f"\n {l}" for l in code.split("\n")))
+    return await locals()["__aexec"](event)
         
 
     
