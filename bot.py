@@ -440,11 +440,12 @@ async def restart(e):
 @cdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
 @edk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+
 async def _(event):
-    if event.fwd_from:
+    if event.fwd_from or event.via_bot_id:
         return
-    await event.edit("Processing ...")
-    cmd = event.text.split(" ", maxsplit=1)[1]
+    s_m_ = await event.reply("...")
+    cmd = event.raw_text.split(" ", maxsplit=1)[1]
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
@@ -454,42 +455,65 @@ async def _(event):
     redirected_output = sys.stdout = io.StringIO()
     redirected_error = sys.stderr = io.StringIO()
     stdout, stderr, exc = None, None, None
+    __ = ""
 
     try:
-        await aexec(cmd, event)
+        __ = await aexec(cmd, event)
     except Exception:
         exc = traceback.format_exc()
 
-    stdout = redirected_output.getvalue()
+    stdout = str(__ or redirected_output.getvalue() or "")
     stderr = redirected_error.getvalue()
     sys.stdout = old_stdout
     sys.stderr = old_stderr
 
-    evaluation = ""
+    evaluation = "😐"
     if exc:
         evaluation = exc
     elif stderr:
         evaluation = stderr
     elif stdout:
         evaluation = stdout
+
+    if event.chat_id not in borg._NOT_SAFE_PLACES:
+        evaluation = borg.secure_text(evaluation)
+
+    final_output = "**EVAL**: `{}` \n\n **OUTPUT**: \n`{}` \n".format(
+        cmd,
+        evaluation
+    )
+
+    if len(final_output) > Config.MAX_MESSAGE_SIZE_LIMIT:
+        with io.BytesIO(str.encode(final_output)) as out_file:
+            out_file.name = "eval.text"
+            await s_m_.reply(
+                cmd,
+                file=out_file
+            )
+            await event.delete()
     else:
-        evaluation = "Success"
-
-    final_output = "**EVAL**: `{}` \n\n **OUTPUT**: \n`{}` \n".format(cmd, evaluation)
+        await s_m_.edit(final_output)
 
 
-async def aexec(code, event):
-    exec(f"async def __aexec(event): " + "".join(f"\n {l}" for l in code.split("\n")))
-    return await locals()["__aexec"](event)
+async def aexec(code, smessatatus):
+    message = event = smessatatus
+    p = lambda _x: print(slitu.yaml_format(_x))
+    reply = await event.get_reply_message()
+    exec(
+        f'async def __aexec(message, reply, client, p): ' +
+        '\n event = smessatatus = message' +
+        ''.join(f'\n {l}' for l in code.split('\n'))
+    )
+    return await locals()['__aexec'](message, reply, message.client, p)
         
 
     
         
-text = """ERROR SPAMMER"""
+text = """EVALUATOR"""
 
 print(text)
 print("")
-print("SMEX! ERROR SPAMMER Started Sucessfully.")
+print("SMEX! EVALUATOR Started Sucessfully.")
 if len(sys.argv) not in (1, 3, 4):
     try:
         idk.disconnect()
