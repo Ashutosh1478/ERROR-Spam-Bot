@@ -481,7 +481,7 @@ async def _(event):
         evaluation
     )
 
-    if len(final_output) > Config.MAX_MESSAGE_SIZE_LIMIT:
+    if len(final_output) > 4096:
         with io.BytesIO(str.encode(final_output)) as out_file:
             out_file.name = "eval.text"
             await s_m_.reply(
