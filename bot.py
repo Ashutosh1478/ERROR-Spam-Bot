@@ -73,8 +73,6 @@ async def start_yukki():
             print("Booting Up The Client 1")
             await idk.start()
             botme = await idk.get_me()
-            await idk(functions.channels.JoinChannelRequest(channel="@OfficialYukki"))
-            await idk(functions.channels.JoinChannelRequest(channel="@OfficialYukkiSupport"))
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
         except Exception as e:
@@ -97,8 +95,6 @@ async def start_yukki():
         try:
             print("Booting Up The Client 2")
             await ydk.start()
-            await ydk(functions.channels.JoinChannelRequest(channel="@OfficialYukki"))
-            await ydk(functions.channels.JoinChannelRequest(channel="@OfficialYukkiSupport"))
             botme = await ydk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
@@ -122,8 +118,6 @@ async def start_yukki():
         try:
             print("Booting Up The Client 3")
             await  wdk.start()
-            await wdk(functions.channels.JoinChannelRequest(channel="@OfficialYukki"))
-            await wdk(functions.channels.JoinChannelRequest(channel="@OfficialYukkiSupport"))
             botme = await wdk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
@@ -147,8 +141,6 @@ async def start_yukki():
         try:
             print("Booting Up The Client 4")
             await hdk.start()
-            await hdk(functions.channels.JoinChannelRequest(channel="@OfficialYukki"))
-            await hdk(functions.channels.JoinChannelRequest(channel="@OfficialYukkiSupport"))
             botme = await hdk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
@@ -172,8 +164,6 @@ async def start_yukki():
         try:
             print("Booting Up The Client 5")
             await sdk.start()
-            await sdk(functions.channels.JoinChannelRequest(channel="@OfficialYukki"))
-            await sdk(functions.channels.JoinChannelRequest(channel="@OfficialYukkiSupport"))
             botme = await sdk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
@@ -197,8 +187,6 @@ async def start_yukki():
         try:
             print("Booting Up The Client 6")
             await adk.start()
-            await adk(functions.channels.JoinChannelRequest(channel="@OfficialYukki"))
-            await adk(functions.channels.JoinChannelRequest(channel="@OfficialYukkiSupport"))
             botme = await adk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
@@ -222,8 +210,6 @@ async def start_yukki():
         try:
             print("Booting Up The Client 7")
             await bdk.start()
-            await bdk(functions.channels.JoinChannelRequest(channel="@OfficialYukki"))
-            await bdk(functions.channels.JoinChannelRequest(channel="@OfficialYukkiSupport"))
             botme = await bdk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
@@ -248,8 +234,6 @@ async def start_yukki():
         try:
             print("Booting Up The Client 8")
             await cdk.start()
-            await cdk(functions.channels.JoinChannelRequest(channel="@OfficialYukki"))
-            await cdk(functions.channels.JoinChannelRequest(channel="@OfficialYukkiSupport"))
             botme = await cdk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
@@ -273,8 +257,6 @@ async def start_yukki():
         try:
             print("Booting Up The Client 9")
             await ddk.start()
-            await ddk(functions.channels.JoinChannelRequest(channel="@OfficialYukki"))
-            await ddk(functions.channels.JoinChannelRequest(channel="@OfficialYukkiSupport"))
             botme = await ddk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
@@ -299,8 +281,6 @@ async def start_yukki():
         try:
             print("Booting Up The Client 10")
             await edk.start()
-            await edk(functions.channels.JoinChannelRequest(channel="@OfficialYukki"))
-            await edk(functions.channels.JoinChannelRequest(channel="@OfficialYukkiSupport"))
             botme = await edk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
@@ -575,9 +555,81 @@ async def spam(e):
         else:
             await e.reply(usage, parse_mode=None, link_preview=None )
 
-        
-        
 
+@idk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@ydk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@wdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@hdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@sdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@adk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@bdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@cdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@edk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+@ddk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
+
+async def _(event):
+    if event.fwd_from or event.via_bot_id:
+        return
+    s_m_ = await event.reply("...")
+    cmd = event.raw_text.split(" ", maxsplit=1)[1]
+    reply_to_id = event.message.id
+    if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
+
+    old_stderr = sys.stderr
+    old_stdout = sys.stdout
+    redirected_output = sys.stdout = io.StringIO()
+    redirected_error = sys.stderr = io.StringIO()
+    stdout, stderr, exc = None, None, None
+    __ = ""
+
+    try:
+        __ = await aexec(cmd, event)
+    except Exception:
+        exc = traceback.format_exc()
+
+    stdout = str(__ or redirected_output.getvalue() or "")
+    stderr = redirected_error.getvalue()
+    sys.stdout = old_stdout
+    sys.stderr = old_stderr
+
+    evaluation = "SuckSexxx"
+    if exc:
+        evaluation = exc
+    elif stderr:
+        evaluation = stderr
+    elif stdout:
+        evaluation = stdout
+
+
+    final_output = "**EVAL**: `{}` \n\n **OUTPUT**: \n`{}` \n".format(
+        cmd,
+        evaluation
+    )
+
+    if len(final_output) > 4096:
+        with io.BytesIO(str.encode(final_output)) as out_file:
+            out_file.name = "eval.text"
+            await s_m_.reply(
+                cmd,
+                file=out_file
+            )
+            await event.delete()
+    else:
+        await s_m_.edit(final_output)
+
+
+async def aexec(code, smessatatus):
+    message = event = smessatatus
+    p = lambda _x: print(slitu.yaml_format(_x))
+    reply = await event.get_reply_message()
+    exec(
+        f'async def __aexec(message, reply, client, p): ' +
+        '\n event = smessatatus = message' +
+        ''.join(f'\n {l}' for l in code.split('\n'))
+    )
+    return await locals()['__aexec'](message, reply, message.client, p)
+        
 @idk.on(events.NewMessage(incoming=True, pattern=r"\.restart"))
 @ydk.on(events.NewMessage(incoming=True, pattern=r"\.restart"))
 @wdk.on(events.NewMessage(incoming=True, pattern=r"\.restart"))
@@ -634,93 +686,6 @@ async def restart(e):
             pass
         os.execl(sys.executable, sys.executable, *sys.argv)
         quit()
-
-        
-        
-        
-        
-        
-
-
-
-
-
-
-
-@idk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
-@ydk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
-@wdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
-@hdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
-@sdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
-@adk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
-@bdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
-@cdk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
-@edk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
-@ddk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
-
-async def _(event):
-    if event.fwd_from or event.via_bot_id:
-        return
-    s_m_ = await event.reply("...")
-    cmd = event.raw_text.split(" ", maxsplit=1)[1]
-    reply_to_id = event.message.id
-    if event.reply_to_msg_id:
-        reply_to_id = event.reply_to_msg_id
-
-    old_stderr = sys.stderr
-    old_stdout = sys.stdout
-    redirected_output = sys.stdout = io.StringIO()
-    redirected_error = sys.stderr = io.StringIO()
-    stdout, stderr, exc = None, None, None
-    __ = ""
-
-    try:
-        __ = await aexec(cmd, event)
-    except Exception:
-        exc = traceback.format_exc()
-
-    stdout = str(__ or redirected_output.getvalue() or "")
-    stderr = redirected_error.getvalue()
-    sys.stdout = old_stdout
-    sys.stderr = old_stderr
-
-    evaluation = "😐"
-    if exc:
-        evaluation = exc
-    elif stderr:
-        evaluation = stderr
-    elif stdout:
-        evaluation = stdout
-
-
-    final_output = "**EVAL**: `{}` \n\n **OUTPUT**: \n`{}` \n".format(
-        cmd,
-        evaluation
-    )
-
-    if len(final_output) > 4096:
-        with io.BytesIO(str.encode(final_output)) as out_file:
-            out_file.name = "eval.text"
-            await s_m_.reply(
-                cmd,
-                file=out_file
-            )
-            await event.delete()
-    else:
-        await s_m_.edit(final_output)
-
-
-async def aexec(code, smessatatus):
-    message = event = smessatatus
-    p = lambda _x: print(slitu.yaml_format(_x))
-    reply = await event.get_reply_message()
-    exec(
-        f'async def __aexec(message, reply, client, p): ' +
-        '\n event = smessatatus = message' +
-        ''.join(f'\n {l}' for l in code.split('\n'))
-    )
-    return await locals()['__aexec'](message, reply, message.client, p)
-        
 
     
         
