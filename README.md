@@ -3,7 +3,7 @@
    <br>
    <br>
 </p>
-<b>ERROR SPAMMER is a telegram Spam Bot that can do unlimited spam.</b>
+<b>EvalUB is a telegram minimal userbot mainly designed to execute python commands and supports multi-client too!!.</b>
 <br>
 <br>
    
@@ -32,5 +32,5 @@
     
     [-] API_HASH :   You can get this value from https://my.telegram.org
     
-[+] ERROR Spam Bot will not work without setting the mandatory vars.
+[+] EvalUB not work without setting the mandatory vars.
 ```
