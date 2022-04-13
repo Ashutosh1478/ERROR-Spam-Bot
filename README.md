@@ -20,7 +20,8 @@
 * Telethon STRING
 
 ## CREDITS
-[🆈🆄🅺🅺🅸](https://github.com/YukkiBot/YukkiMultiSpamBot)
+[🆈🆄🅺🅺🅸](https://github.com/YukkiBot/YukkiMultiSpamBot) For the base
+Spechide and Lonami for Telethon
 
 # Mandatory Vars
 ```
