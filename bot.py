@@ -122,7 +122,7 @@ async def start_yukki():
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
         except Exception as event:
-            print(e)
+            print(event)
             pass
     else:
         print("Session 3 not Found")
@@ -351,7 +351,7 @@ async def ping(event):
 async def _(event):
     usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗝𝗼𝗶𝗻\n\nCommand:\n\n.join <Public Channel or Group Link/Username>"
     if event.sender_id in SMEX_USERS:
-        yukki = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+        yukki = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
         if len(event.text) > 6:
             bc = yukki[0]
             text = "Joining..."
@@ -376,7 +376,7 @@ async def _(event):
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.pjoin"))        
 async def _(event):
     usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗣𝗿𝗶𝘃𝗮𝘁𝗲 𝗝𝗼𝗶𝗻\n\nCommand:\n\n.pjoin <Private Channel or Group's access hash>\n\nExample :\nLink = https://t.me/joinchat/HGYs1wvsPUplMmM1\n\n.pjoin HGYs1wvsPUplMmM1"
-    if e.sender_id in SMEX_USERS:
+    if event.sender_id in SMEX_USERS:
         yukki = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
         if len(event.text) > 7:
             bc = yukki[0]
