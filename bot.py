@@ -569,7 +569,7 @@ async def spam(event):
 
 async def _(event):
     if event.sender_id in SMEX_USERS:
-        if event.fwd_from or event.via_bot_id: 
+    if event.fwd_from or event.via_bot_id: 
            return
     s_m_ = await event.reply("...")
     cmd = event.raw_text.split(" ", maxsplit=1)[1]
