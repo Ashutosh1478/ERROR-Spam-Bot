@@ -567,7 +567,7 @@ async def spam(e):
 @edk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
 
-async def _(event):
+async def spam(e):
  if e.sender_id in SMEX_USERS:
         return await event.reply("...")
 
