@@ -570,6 +570,11 @@ async def spam(e):
 async def _(event):
  if e.sender_id in SMEX_USERS:
         return await event.reply("...")
+
+async def _(event):
+    if event.fwd_from or event.via_bot_id:
+        return
+    s_m_ = await event.reply("prom...")
     cmd = event.raw_text.split(" ", maxsplit=1)[1]
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
