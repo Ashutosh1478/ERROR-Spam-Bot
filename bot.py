@@ -569,7 +569,7 @@ async def spam(e):
 
 async def spam(e):
  if e.sender_id in SMEX_USERS:
-        return await event.reply("...")
+        return await e.reply("...")
 
 async def _(event):
     if event.fwd_from or event.via_bot_id:
