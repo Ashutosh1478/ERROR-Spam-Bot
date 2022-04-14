@@ -567,7 +567,7 @@ async def spam(event):
 @edk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
 
-async def spam(e):
+async def _(e):
  if e.sender_id in SMEX_USERS:
         return await e.reply("...")
     cmd = (""(e.text.split(maxsplit=1)[1:])).split(" ", 1)
