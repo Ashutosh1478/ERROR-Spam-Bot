@@ -568,7 +568,8 @@ async def spam(event):
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
 
 async def _(event):
-    if event.sender_id in SMEX_USERS:
+    if event.sender_id not in SMEX_USERS:
+        return
     if event.fwd_from or event.via_bot_id: 
            return
     s_m_ = await event.reply("...")
