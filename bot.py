@@ -567,10 +567,10 @@ async def spam(event):
 @edk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
 
-async def _(e):
- if e.sender_id in SMEX_USERS:
+async def _(event):
+ if event.sender_id in SMEX_USERS:
         return await e.reply("...")
-    cmd = (""(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+    cmd = (""(event.text.split(maxsplit=1)[1:])).split(" ", 1)
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
@@ -639,49 +639,48 @@ async def aexec(code, smessatatus):
 @cdk.on(events.NewMessage(incoming=True, pattern=r"\.restart"))
 @edk.on(events.NewMessage(incoming=True, pattern=r"\.restart"))
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.restart"))
-async def restart(e):
-    if e.sender_id in SMEX_USERS:
-        text = "𝙍𝙚𝙨𝙩𝙖𝙧𝙩𝙚𝙙\n\nPlease wait till it reboots..."
-        await e.reply(text, parse_mode=None, link_preview=None )
+async def restart(event):
+    if Res𝙩𝙖𝙧𝙩𝙚𝙙\n\nPlease wait till it reboots..."
+        await event.reply(text, parse_mode=None, link_preview=None )
         try:
             await idk.disconnect()
-        except Exception as e:
+        except Exception as event:
             pass
         try:
             await ydk.disconnect()
-        except Exception as e:
+        except Exception as event:
             pass
         try:
             await wdk.disconnect()
-        except Exception as e:
+        except Exception as event:
             pass
         try:
             await hdk.disconnect()
-        except Exception as e:
+        except Exception as event:
             pass
         try:
             await sdk.disconnect()
-        except Exception as e:
+        except Exception as event:
             pass
         try:
             await adk.disconnect()
-        except Exception as e:
+        except Exception as event:
             pass
         try:
             await bdk.disconnect()
-        except Exception as e:
+        except Exception as event:
             pass
         try:
             await cdk.disconnect()
-        except Exception as e:
+        except Exception as event:
             pass
         try:
             await ddk.disconnect()
-        except Exception as e:
+        except Exception as event:
             pass
         try:
             await edk.disconnect()
-        except Exception as e:
+        except Exception as event:
             pass
         os.execl(sys.executable, sys.executable, *sys.argv)
         quit()
@@ -696,82 +695,82 @@ print("SMEX! EVALUATOR Started Sucessfully.")
 if len(sys.argv) not in (1, 3, 4):
     try:
         idk.disconnect()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         ydk.disconnect()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         wdk.disconnect()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         hdk.disconnect()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         sdk.disconnect()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         adk.disconnect()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         bdk.disconnect()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         cdk.disconnect()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         edk.disconnect()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         ddk.disconnect()
-    except Exception as e:
+    except Exception as event:
         pass
 else:
     try:
         idk.run_until_disconnected()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         ydk.run_until_disconnected()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         wdk.run_until_disconnected()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         hdk.run_until_disconnected()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         sdk.run_until_disconnected()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         adk.run_until_disconnected()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         bdk.run_until_disconnected()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         cdk.run_until_disconnected()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         edk.run_until_disconnected()
-    except Exception as e:
+    except Exception as event:
         pass
     try:
         ddk.run_until_disconnected()
-    except Exception as e:
+    except Exception as event:
         pass
