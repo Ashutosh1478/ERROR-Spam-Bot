@@ -75,9 +75,9 @@ async def start_yukki():
             botme = await idk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
-        except Exception as e:
+        except Exception as event:
             idk = "smex"
-            print(e)
+            print(event)
             pass
     else:
         print("Session 1 not Found")
@@ -85,7 +85,7 @@ async def start_yukki():
         idk = TelegramClient(session_name, a, b)
         try:
             await idk.start()
-        except Exception as e:
+        except Exception as event:
             pass
    
     if smexx:
@@ -98,8 +98,8 @@ async def start_yukki():
             botme = await ydk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
-        except Exception as e:
-            print(e)
+        except Exception as event:
+            print(event)
             pass
     else:
         print("Session 2 not Found")
@@ -108,7 +108,7 @@ async def start_yukki():
         ydk = TelegramClient(session_name, a, b)
         try:
             await ydk.start()
-        except Exception as e:
+        except Exception as event:
             pass
 
     if smexxx:
@@ -121,7 +121,7 @@ async def start_yukki():
             botme = await wdk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
-        except Exception as e:
+        except Exception as event:
             print(e)
             pass
     else:
@@ -131,7 +131,7 @@ async def start_yukki():
         wdk = TelegramClient(session_name, a, b)
         try:
             await wdk.start()
-        except Exception as e:
+        except Exception as event:
             pass
 
     if smexxxx:
@@ -144,8 +144,8 @@ async def start_yukki():
             botme = await hdk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
-        except Exception as e:
-            print(e)
+        except Exception as event:
+            print(event)
             pass
     else:
         print("Session 4 not Found")
@@ -154,7 +154,7 @@ async def start_yukki():
         hdk = TelegramClient(session_name, a, b)
         try:
             await hdk.start()
-        except Exception as e:
+        except Exception as event:
             pass
 
     if smexxxxx:
@@ -167,8 +167,8 @@ async def start_yukki():
             botme = await sdk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
-        except Exception as e:
-            print(e)
+        except Exception as event:
+            print(event)
             pass
     else:
         print("Session 5 not Found")
@@ -177,7 +177,7 @@ async def start_yukki():
         sdk = TelegramClient(session_name, a, b)
         try:
             await sdk.start()
-        except Exception as e:
+        except Exception as event:
             pass
                   
     if sixth:
@@ -190,8 +190,8 @@ async def start_yukki():
             botme = await adk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
-        except Exception as e:
-            print(e)
+        except Exception as event:
+            print(event)
             pass
     else:
         print("Session 6 not Found")
@@ -200,7 +200,7 @@ async def start_yukki():
         adk = TelegramClient(session_name, a, b)
         try:
             await adk.start()
-        except Exception as e:
+        except Exception as event:
             pass
 
     if seven:
@@ -213,8 +213,8 @@ async def start_yukki():
             botme = await bdk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
-        except Exception as e:
-            print(e)
+        except Exception as event:
+            print(event)
             pass
     else:
         print("Session 7 not Found")
@@ -223,7 +223,7 @@ async def start_yukki():
         bdk = TelegramClient(session_name, a, b)
         try:
             await bdk.start()
-        except Exception as e:
+        except Exception as event:
             pass    
         
     
@@ -237,8 +237,8 @@ async def start_yukki():
             botme = await cdk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
-        except Exception as e:
-            print(e)
+        except Exception as event:
+            print(event)
             pass
     else:
         print("Session 8 not Found")
@@ -247,7 +247,7 @@ async def start_yukki():
         cdk = TelegramClient(session_name, a, b)
         try:
             await cdk.start()
-        except Exception as e:
+        except Exception as event:
             pass   
         
     if ninth:
@@ -260,8 +260,8 @@ async def start_yukki():
             botme = await ddk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
-        except Exception as e:
-            print(e)
+        except Exception as event:
+            print(event)
             pass
     else:
         print("Session 9 not Found")
@@ -270,7 +270,7 @@ async def start_yukki():
         ddk = TelegramClient(session_name, a, b)
         try:
             await ddk.start()
-        except Exception as e:
+        except Exception as event:
             pass   
     
   
@@ -284,8 +284,8 @@ async def start_yukki():
             botme = await edk.get_me()
             botid = telethon.utils.get_peer_id(botme)
             SMEX_USERS.append(botid)
-        except Exception as e:
-            print(e)
+        except Exception as event:
+            print(event)
             pass
     else:
         print("Session 10 not Found")
@@ -294,15 +294,15 @@ async def start_yukki():
         edk = TelegramClient(session_name, a, b)
         try:
             await edk.start()
-        except Exception as e:
+        except Exception as event:
             pass 
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(start_yukki())       
 
-async def gifspam(e, smex):
+async def gifspam(event, smex):
     try:
-        await e.client(
+        await event.client(
             functions.messages.SaveGifRequest(
                 id=types.InputDocument(
                     id=sandy.media.document.id,
@@ -312,7 +312,7 @@ async def gifspam(e, smex):
                 unsave=True,
             )
         )
-    except Exception as e:
+    except Exception as event:
         pass
 
 
@@ -329,11 +329,11 @@ async def gifspam(e, smex):
 @cdk.on(events.NewMessage(incoming=True, pattern=r"\.ping"))
 @edk.on(events.NewMessage(incoming=True, pattern=r"\.ping"))
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.ping"))
-async def ping(e):
-    if e.sender_id in SMEX_USERS:
+async def ping(event):
+    if event.sender_id in SMEX_USERS:
         start = datetime.now()
         text = "Pong!"
-        event = await e.reply(text, parse_mode=None, link_preview=None )
+        event = await event.reply(text, parse_mode=None, link_preview=None )
         end = datetime.now()
         ms = (end-start).microseconds / 1000
         await event.edit(f"🤖 𝗣𝗼𝗻𝗴!\n`{ms}` 𝗺𝘀")
@@ -348,21 +348,21 @@ async def ping(e):
 @cdk.on(events.NewMessage(incoming=True, pattern=r"\.join"))
 @edk.on(events.NewMessage(incoming=True, pattern=r"\.join"))
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.join"))        
-async def _(e):
+async def _(event):
     usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗝𝗼𝗶𝗻\n\nCommand:\n\n.join <Public Channel or Group Link/Username>"
-    if e.sender_id in SMEX_USERS:
+    if event.sender_id in SMEX_USERS:
         yukki = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-        if len(e.text) > 6:
+        if len(event.text) > 6:
             bc = yukki[0]
             text = "Joining..."
-            event = await e.reply(text, parse_mode=None, link_preview=None )
+            event = await event.reply(text, parse_mode=None, link_preview=None )
             try:
-                await e.client(functions.channels.JoinChannelRequest(channel=bc))
+                await event.client(functions.channels.JoinChannelRequest(channel=bc))
                 await event.edit("Succesfully Joined")
-            except Exception as e:
-                await event.edit(str(e))   
+            except Exception as event:
+                await event.edit(str(event))   
         else:
-            await e.reply(usage, parse_mode=None, link_preview=None )
+            await event.reply(usage, parse_mode=None, link_preview=None )
             
 @idk.on(events.NewMessage(incoming=True, pattern=r"\.pjoin"))
 @ydk.on(events.NewMessage(incoming=True, pattern=r"\.pjoin"))
@@ -374,21 +374,21 @@ async def _(e):
 @cdk.on(events.NewMessage(incoming=True, pattern=r"\.pjoin"))
 @edk.on(events.NewMessage(incoming=True, pattern=r"\.pjoin"))
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.pjoin"))        
-async def _(e):
+async def _(event):
     usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗣𝗿𝗶𝘃𝗮𝘁𝗲 𝗝𝗼𝗶𝗻\n\nCommand:\n\n.pjoin <Private Channel or Group's access hash>\n\nExample :\nLink = https://t.me/joinchat/HGYs1wvsPUplMmM1\n\n.pjoin HGYs1wvsPUplMmM1"
     if e.sender_id in SMEX_USERS:
-        yukki = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-        if len(e.text) > 7:
+        yukki = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
+        if len(event.text) > 7:
             bc = yukki[0]
             text = "Joining...."
-            event = await e.reply(text, parse_mode=None, link_preview=None )
+            event = await event.reply(text, parse_mode=None, link_preview=None )
             try:
-                await e.client(ImportChatInviteRequest(bc))
+                await event.client(ImportChatInviteRequest(bc))
                 await event.edit("Succesfully Joined")
-            except Exception as e:
-                await event.edit(str(e))   
+            except Exception as event:
+                await event.edit(str(event))   
         else:
-            await e.reply(usage, parse_mode=None, link_preview=None )
+            await event.reply(usage, parse_mode=None, link_preview=None )
             
         
 @idk.on(events.NewMessage(incoming=True, pattern=r"\.leave"))
@@ -401,22 +401,22 @@ async def _(e):
 @cdk.on(events.NewMessage(incoming=True, pattern=r"\.leave"))
 @edk.on(events.NewMessage(incoming=True, pattern=r"\.leave"))
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.leave"))        
-async def _(e):
+async def _(event):
     usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗟𝗲𝗮𝘃𝗲\n\nCommand:\n\n.leave <Channel or Chat ID>"
-    if e.sender_id in SMEX_USERS:
-        yukki = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-        if len(e.text) > 7:
+    if event.sender_id in SMEX_USERS:
+        yukki = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
+        if len(event.text) > 7:
             bc = yukki[0]
             bc = int(bc)
             text = "Leaving....."
-            event = await e.reply(text, parse_mode=None, link_preview=None )
+            event = await event.reply(text, parse_mode=None, link_preview=None )
             try:
                 await event.client(LeaveChannelRequest(bc))
                 await event.edit("Succesfully Left")
-            except Exception as e:
-                await event.edit(str(e))   
+            except Exception as event:
+                await event.edit(str(event))   
         else:
-            await e.reply(usage, parse_mode=None, link_preview=None )
+            await event.reply(usage, parse_mode=None, link_preview=None )
             
                 
         
@@ -431,35 +431,35 @@ async def _(e):
 @cdk.on(events.NewMessage(incoming=True, pattern=r"\.spam"))
 @edk.on(events.NewMessage(incoming=True, pattern=r"\.spam"))
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.spam"))
-async def spam(e):
+async def spam(event):
     usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗦𝗽𝗮𝗺\n\nCommand:\n\n.spam <count> <message to spam>\n\n.spam <count> <reply to a message>\n\nCount must be a integer."
     error = "Spam Module can only be used till 100 count. For bigger spams use BigSpam."
-    if e.sender_id in SMEX_USERS:
-        if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-            return await e.reply(usage, parse_mode=None, link_preview=None )
-        yukki = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-        smex = await e.get_reply_message()
+    if event.sender_id in SMEX_USERS:
+        if event.text[0].isalpha() and event.text[0] in ("/", "#", "@", "!"):
+            return await event.reply(usage, parse_mode=None, link_preview=None )
+        yukki = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
+        smex = await event.get_reply_message()
         if len(yukki) == 2:
             message = str(yukki[1])
             counter = int(yukki[0])
             if counter > 100:
-                return await e.reply(error, parse_mode=None, link_preview=None )
-            await asyncio.wait([e.respond(message) for i in range(counter)])
-        elif e.reply_to_msg_id and smex.media:  
+                return await event.reply(error, parse_mode=None, link_preview=None )
+            await asyncio.wait([event.respond(message) for i in range(counter)])
+        elif event.reply_to_msg_id and smex.media:  
             counter = int(yukki[0])
             if counter > 100:
-                return await e.reply(error, parse_mode=None, link_preview=None )
+                return await event.reply(error, parse_mode=None, link_preview=None )
             for _ in range(counter):
-                smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
-                await gifspam(e, smex)  
-        elif e.reply_to_msg_id and smex.text:
+                smex = await event.client.send_file(event.chat_id, smex, caption=smex.text)
+                await gifspam(event, smex)  
+        elif event.reply_to_msg_id and smex.text:
             message = smex.text
             counter = int(yukki[0])
             if counter > 100:
-                return await e.reply(error, parse_mode=None, link_preview=None )
-            await asyncio.wait([e.respond(message) for i in range(counter)])
+                return await event.reply(error, parse_mode=None, link_preview=None )
+            await asyncio.wait([event.respond(message) for i in range(counter)])
         else:
-            await e.reply(usage, parse_mode=None, link_preview=None )
+            await event.reply(usage, parse_mode=None, link_preview=None )
             
 
 @idk.on(events.NewMessage(incoming=True, pattern=r"\.delayspam"))
@@ -472,43 +472,43 @@ async def spam(e):
 @cdk.on(events.NewMessage(incoming=True, pattern=r"\.delayspam"))
 @edk.on(events.NewMessage(incoming=True, pattern=r"\.delayspam"))
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.delayspam"))
-async def spam(e):
+async def spam(event):
     usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗗𝗲𝗹𝗮𝘆𝗦𝗽𝗮𝗺\n\nCommand:\n\n.delayspam <sleep time> <count> <message to spam>\n\n.delayspam <sleep time> <count> <reply to a message>\n\nCount and Sleeptime must be a integer."
-    if e.sender_id in SMEX_USERS:
-        if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-            return await e.reply(usage, parse_mode=None, link_preview=None )
-        smex = await e.get_reply_message()
-        yukki = "".join(e.text.split(maxsplit=1)[1:]).split(" ", 2)
+    if event.sender_id in SMEX_USERS:
+        if event.text[0].isalpha() and event.text[0] in ("/", "#", "@", "!"):
+            return await event.reply(usage, parse_mode=None, link_preview=None )
+        smex = await event.get_reply_message()
+        yukki = "".join(event.text.split(maxsplit=1)[1:]).split(" ", 2)
         yukkisexy = yukki[1:]
         if len(yukkisexy) == 2:
             message = str(yukkisexy[1])
             counter = int(yukkisexy[0])
             sleeptime = float(yukki[0])
             for _ in range(counter):
-                async with e.client.action(e.chat_id, "typing"):
-                    if e.reply_to_msg_id:
+                async with event.client.action(event.chat_id, "typing"):
+                    if event.reply_to_msg_id:
                         await smex.reply(message)
                     else:
-                        await e.client.send_message(e.chat_id, message)
+                        await event.client.send_message(event.chat_id, message)
                     await asyncio.sleep(sleeptime)
-        elif e.reply_to_msg_id and smex.media:  
+        elif event.reply_to_msg_id and smex.media:  
             counter = int(yukkisexy[0])
             sleeptime = float(yukki[0])
             for _ in range(counter):
-                async with e.client.action(e.chat_id, "document"):
-                    smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
-                    await gifspam(e, smex) 
+                async with event.client.action(event.chat_id, "document"):
+                    smex = await event.client.send_file(event.chat_id, smex, caption=smex.text)
+                    await gifspam(event, smex) 
                 await asyncio.sleep(sleeptime)
-        elif e.reply_to_msg_id and smex.text:
+        elif event.reply_to_msg_id and smex.text:
             message = smex.text
             counter = int(yukkisexy[0])
             sleeptime = float(yukki[0])
             for _ in range(counter):
-                async with e.client.action(e.chat_id, "typing"):
-                    await e.client.send_message(e.chat_id, message)
+                async with event.client.action(event.chat_id, "typing"):
+                    await event.client.send_message(event.chat_id, message)
                     await asyncio.sleep(sleeptime)
         else:
-            await e.reply(usage, parse_mode=None, link_preview=None )
+            await event.reply(usage, parse_mode=None, link_preview=None )
 
 
 @idk.on(events.NewMessage(incoming=True, pattern=r"\.bigspam"))
@@ -521,39 +521,39 @@ async def spam(e):
 @cdk.on(events.NewMessage(incoming=True, pattern=r"\.bigspam"))
 @edk.on(events.NewMessage(incoming=True, pattern=r"\.bigspam"))
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.bigspam"))
-async def spam(e):
+async def spam(event):
     usage = "𝗠𝗼𝗱𝘂𝗹𝗲 𝗡𝗮𝗺𝗲 = 𝗕𝗶𝗴𝗦𝗽𝗮𝗺\n\nCommand:\n\n.bigspam <count> <message to spam>\n\n.bigspam <count> <reply to a message>\n\nCount must be a integer."
-    if e.sender_id in SMEX_USERS:
-        if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-            return await e.reply(usage, parse_mode=None, link_preview=None )
-        yukki = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-        smex = await e.get_reply_message()
+    if event.sender_id in SMEX_USERS:
+        if event.text[0].isalpha() and event.text[0] in ("/", "#", "@", "!"):
+            return await event.reply(usage, parse_mode=None, link_preview=None )
+        yukki = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
+        smex = await event.get_reply_message()
         if len(yukki) == 2:
             message = str(yukki[1])
             counter = int(yukki[0])
             for _ in range(counter):
-                async with e.client.action(e.chat_id, "typing"):
-                    if e.reply_to_msg_id:
+                async with event.client.action(event.chat_id, "typing"):
+                    if event.reply_to_msg_id:
                         await smex.reply(message)
                     else:
-                        await e.client.send_message(e.chat_id, message)
+                        await event.client.send_message(event.chat_id, message)
                     await asyncio.sleep(0.3)
-        elif e.reply_to_msg_id and smex.media:  
+        elif event.reply_to_msg_id and smex.media:  
             counter = int(yukki[0])
             for _ in range(counter):
-                async with e.client.action(e.chat_id, "document"):
-                    smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
-                    await gifspam(e, smex) 
+                async with event.client.action(event.chat_id, "document"):
+                    smex = await event.client.send_file(event.chat_id, smex, caption=smex.text)
+                    await gifspam(event, smex) 
                 await asyncio.sleep(0.3)  
-        elif e.reply_to_msg_id and smex.text:
+        elif event.reply_to_msg_id and smex.text:
             message = smex.text
             counter = int(yukki[0])
             for _ in range(counter):
-                async with e.client.action(e.chat_id, "typing"):
-                    await e.client.send_message(e.chat_id, message)
+                async with event.client.action(event.chat_id, "typing"):
+                    await event.client.send_message(event.chat_id, message)
                     await asyncio.sleep(0.3)
         else:
-            await e.reply(usage, parse_mode=None, link_preview=None )
+            await event.reply(usage, parse_mode=None, link_preview=None )
 
 
 @idk.on(events.NewMessage(incoming=True, pattern=r"\.eval"))
