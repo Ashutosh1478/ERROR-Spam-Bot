@@ -644,7 +644,8 @@ async def aexec(code, smessatatus):
 @edk.on(events.NewMessage(incoming=True, pattern=r"\.restart"))
 @ddk.on(events.NewMessage(incoming=True, pattern=r"\.restart"))
 async def restart(event):
-    if "𝙍𝙚𝙨𝙩𝙖𝙧𝙩𝙚𝙙\n\nPlease wait till it reboots..."
+    if event.sender_id in SMEX_USERS:
+        text = "𝙍𝙚𝙨𝙩𝙖𝙧𝙩𝙚𝙙\n\nPlease wait till it reboots..."
         await event.reply(text, parse_mode=None, link_preview=None )
         try:
             await idk.disconnect()
